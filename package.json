@@ -34,6 +34,7 @@
 		"create-react-app": "^1.5.2"
 	},
 	"dependencies": {
+		"esm": "^3.0.28",
 		"mobx": "^4.2.0",
 		"mobx-react": "^5.0.0",
 		"mobx-state-tree": "^2.0.4",

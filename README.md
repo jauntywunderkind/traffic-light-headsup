@@ -2,9 +2,71 @@
 
 > A mobile-web app giving a real-time signal-status display of upcoming traffic lights & signals.
 
+# Backend Tasks
+
+This section contains some of the major tasks to be completed
+
+## Scrape Map Data into PostGIS
+
+Map Data has the static intersection configuration information. With this we can tell things like, for example, whether or not there is a left arrow in the northbound route. Hopefully it contains things like geocordinates (this might be only in the Signal Data; Inventory or Status API endpoints)?
+
+Get this data into PostGIS.
+
+Later we will need to send this data to the user, before they near an intersection, so we know which of the many traffic signals to display.
+
+## Find Nearest Intersection
+
+Use PostGIS to, for a given geocordinate, locate the nearest 2-3 traffic lights.
+
+Later we will need to tell the user what traffic light is nearby.
+
+### Direction-sensitive Intersection Location
+
+More than looking for the nearest interesection, ideally we could look for the nearest intersection in the direction we are headed. Find a way to filter the nearest intersection results to a specific direction.
+
+## Ongoingly pipe Signal Phase and Timing Data into Postgres
+
+Create a listener that periodically polls the Signal Phase and Timing endpoint, decodes the data there, and appends the decoded data as new records stored in PostGIS.
+
+This endpoint shows a real-time stream of all changing signal and phase timing information in the VA system. By polling this endpoint, we can collect all of the ongoing, changing information.
+
+Later we will use this data by sending changes happening near to a user to that user.
+
+# Front End Tasks
+
+# Render a traffic light
+
+Show a traffic light in a user friendly format on a smartphone, via a web application. Provide a manual way to switch the light between phases (red/yellow/green).
+
+Later this will serve as the visual backbone of the final application.
+
+# Send location data to server
+
+Ongoingly ask geo-location information via the [geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition) web specification. Send this data to the server at regular interval.
+
+Later, the server will use this data to figure out what intersections to send to the client.
+
+# Send the client local intersection data
+
+Listen to local intersection data sent from the server. The server must adjust which intersection it sends data from.
+
+# Judging Criteria
+
+* Impact
+* Technical achievement
+* Approach
+* Originality
+* Polish and Representation
+
+# Ideas
+
+Additional ideas:
+
+## Speak voice
+
 # Bootstrap
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). All further docs in this README originate from that boilerplate:
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

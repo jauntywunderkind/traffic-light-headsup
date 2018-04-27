@@ -34,21 +34,25 @@ Later we will use this data by sending changes happening near to a user to that 
 
 # Front End Tasks
 
-# Render a traffic light
+## Render a traffic light
 
 Show a traffic light in a user friendly format on a smartphone, via a web application. Provide a manual way to switch the light between phases (red/yellow/green).
 
 Later this will serve as the visual backbone of the final application.
 
-# Send location data to server
+## Send location data to server
 
 Ongoingly ask geo-location information via the [geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition) web specification. Send this data to the server at regular interval.
 
 Later, the server will use this data to figure out what intersections to send to the client.
 
-# Send the client local intersection data
+## Send the client local intersection data
 
 Listen to local intersection data sent from the server. The server must adjust which intersection it sends data from.
+
+## Create MobX models
+
+We're hoping MobX makes this program simple to write- new data updates are simply written to the store, and MobX recalulates whatever is needed & renders the results. Create data-models for our data, and setup mobx.
 
 # Judging Criteria
 
@@ -63,6 +67,10 @@ Listen to local intersection data sent from the server. The server must adjust w
 Additional ideas in this section
 
 ## Speak voice
+
+## Beep when approaching red
+
+Service to inform someone of coming up to a red, to help avoid accidents.
 
 # Literature
 

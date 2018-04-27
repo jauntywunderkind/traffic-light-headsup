@@ -60,9 +60,13 @@ Listen to local intersection data sent from the server. The server must adjust w
 
 # Ideas
 
-Additional ideas:
+Additional ideas in this section
 
 ## Speak voice
+
+# Literature
+
+Some background reading on technologies used in Traffic Light Headsup is available in the [`literature/`](literature/) folder.
 
 # Bootstrap
 

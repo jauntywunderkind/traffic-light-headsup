@@ -1,12 +1,12 @@
 import { types } from "mobx-state-tree"
 
-export RoadRegulatorID = types.number
+export const RoadRegulatorID = types.refinement("RoadRegulatorID", types.number, ()=> true)
 
-export IntersectionID = types.number
+export const IntersectionID = types.refinement("IntersectionID", types.number, ()=> true)
 
 export const IntersectionReferenceID = types.model({
-	region: types.optional(RoadRegulatorID),
+	region: types.optional(RoadRegulatorID, -1),
 	id: IntersectionID
 })
 
-export default IntersectionRefenceID
+export default IntersectionReferenceID

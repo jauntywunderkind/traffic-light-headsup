@@ -8,13 +8,14 @@ import UserContext from "../UserContext"
 */
 export class _GeolocationTracker extends Component {
 	constructor() {
+		super()
 		this.onStartTracking = this.onStartTracking.bind(this)
 		this.onPosition = this.onPosition.bind(this)
 		this.onPositionError = this.onPositionError.bind(this)
 	}
 	onStartTracking(evt) {
 		evt.preventDefault()
-		if (this.state.watch) {
+		if (this.state && this.state.watch) {
 			return
 		}
 		const watch = navigator.geolocation.watchPosition(
@@ -29,9 +30,11 @@ export class _GeolocationTracker extends Component {
 		this.setState({
 			watch
 		})
+		console.log("tracking started")
 	}
 	onPosition(pos) {
 		this.reportPosition(pos)
+		console.log({ coords: pos.coords })
 	}
 	onPositionError(error) {
 		console.log("position error!", error)
@@ -39,7 +42,7 @@ export class _GeolocationTracker extends Component {
 	reportPosition(pos) {}
 	render() {
 		let button = null
-		if (!this.state.watch) {
+		if (!this.state || !this.state.watch) {
 			button = (
 				<button type="button" onClick={this.onStartTracking}>
 					Start!

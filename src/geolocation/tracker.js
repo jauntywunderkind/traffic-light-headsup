@@ -39,7 +39,41 @@ export class _GeolocationTracker extends Component {
 	onPositionError(error) {
 		console.log("position error!", error)
 	}
-	reportPosition(pos) {}
+	reportPosition(pos) {
+		if (!pos.coords) {
+			console.log("position without coordinates", pos)
+			return
+		}
+		const data = {
+			user: this.props.user,
+			lat: pos.coords.latitude,
+			lng: pos.coords.longitude
+		}
+		const url = this.props.positionUrl
+		fetch(url, {
+			body: JSON.stringify(data),
+			cache: "no-cache",
+			credentials: "same-origin",
+			headers: {
+				"content-type": "application/json"
+			},
+			method: "POST",
+			mode: "cors"
+		})
+			.then(function(res) {
+				if (res.statusCode > 299) {
+					console.error(
+						"position posting unexpected response status",
+						res.statusCode,
+						res
+					)
+				}
+				res.text() // drain it but ignore - not sure if it gc's otherwise?
+			})
+			.catch(function(err) {
+				console.error("error posting", err)
+			})
+	}
 	render() {
 		let button = null
 		if (!this.state || !this.state.watch) {
@@ -71,10 +105,8 @@ _GeolocationTracker.defaultProps = function() {
 
 export const GeolocationTracker = props => (
 	<UserContext.Consumer>
-		{
-			// eslint-disable-next-line
-			user => <_GeolocationTracker {...props} user={user} />
-		}
+		{// eslint-disable-next-line
+		user => <_GeolocationTracker {...props} user={user} />}
 	</UserContext.Consumer>
 )
 

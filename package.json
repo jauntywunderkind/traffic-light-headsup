@@ -4,11 +4,11 @@
 	"description": "A mobile-web app giving a real-time signal-status display of upcoming traffic lights & signals.",
 	"main": "index.js",
 	"scripts": {
-		"start": "concurrently --kill-others-on-fail \"react-scripts start\" \"nodemon -r esm src/server.js\"",
+		"start": "concurrently --kill-others --no-color \"react-scripts start\" \"nodemon -r esm src/server.js\"",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
-		"precommit": "prettier --write 'src/**'"
+		"precommit": "prettier --write 'src/**/*js' 'src/**/*css'"
 	},
 	"proxy": "http://localhost:3001",
 	"repository": {

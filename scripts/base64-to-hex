@@ -1,0 +1,2 @@
+#!/bin/sh
+base64 -d - | xxd -plain | tr -d '\n'

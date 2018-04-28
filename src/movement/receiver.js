@@ -18,16 +18,18 @@ export class _MovementReceiver extends Component {
 			...this.state
 		})
 	}
-	render() {
+	componentDidMount() {
 		if (!this.state.sse) {
 			this.startReceiver()
 		}
+	}
+	render() {
 		return <span id="receiver" />
 	}
 }
 
 _MovementReceiver.propTypes = {
-	updater: propTypes.func.required
+	updater: propTypes.func.isRequired
 }
 
 _MovementReceiver.defaultProps = {}

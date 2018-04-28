@@ -1,10 +1,33 @@
-.App {
-	text-align: center;
+body {
+	margin: 3rem;
 }
 
-.App-logo {
-	animation: App-logo-spin infinite 20s linear;
-	height: 80px;
+.light {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 7rem);
+}
+
+.flex {
+	flex: 1;
+	height: calc(100vh - 7rem); /* 3 rem + 4 rem text space */
+	font-size: 25vmin;
+}
+
+.flex img {
+	height: calc(100vh - 10rem); /* 3*2 rem + 4 rem text space */
+}
+
+.fix {
+	float: clear;
+}
+
+#intersection {
+	height: 4 rem;
+	font-size: 3rem;
+	text-align: center;
 }
 
 .App-header {
@@ -22,11 +45,5 @@
 	font-size: large;
 }
 
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+#trafficlight {
 }

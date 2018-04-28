@@ -18,7 +18,7 @@ export class _GeolocationTracker extends Component {
 	}
 	onStartTracking(evt) {
 		evt.preventDefault()
-		evt.stopPropogation()
+		evt.stopPropagation()
 		if (this.state.watch) {
 			return
 		}

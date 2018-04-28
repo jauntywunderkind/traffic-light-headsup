@@ -43,6 +43,9 @@ class App extends Component {
 		super()
 		this.state = {}
 		this.movementUpdate = this.movementUpdate.bind(this)
+
+		// hack to update things
+		window.movementUpdate = this.movementUpdate
 	}
 	saveUser() {
 		// assert this "user" in the history state
@@ -77,15 +80,16 @@ class App extends Component {
 					{bodyCss}
 				</style>
 
-				<div className="App">
-					<header className="App-header">
-						<img src={logo} className="App-logo" alt="logo" />
-						<h1 className="App-title">Traffic Light Headsup</h1>
-					</header>
-					<p className="App-intro">
-						To get started, edit <code>src/App.js</code> and save to reload.
-					</p>
+				<div className="light">
+					<div className="flex" id="trafficlight">
+						<img src="/outline.svg" />
+					</div>
+					<div className="flex">
+						<p>--</p>
+					</div>
+					<div className="fix" />
 				</div>
+				<div id="intersection">Rogers Road & 18th</div>
 			</UserContext.Provider>
 		)
 	}

@@ -71,7 +71,10 @@ _GeolocationTracker.defaultProps = function() {
 
 export const GeolocationTracker = props => (
 	<UserContext.Consumer>
-		{user => <_GeolocationTracker {...props} user={user} />}
+		{
+			// eslint-disable-next-line
+			user => <_GeolocationTracker {...props} user={user} />
+		}
 	</UserContext.Consumer>
 )
 

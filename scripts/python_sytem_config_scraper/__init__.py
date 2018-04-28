@@ -1,0 +1,1 @@
+from .scaper import system_configuration_web_request_generator as get_sys_configs

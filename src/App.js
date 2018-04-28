@@ -26,7 +26,7 @@ class App extends Component {
 		if (
 			phase === "permissiveClearance" ||
 			phase === "protectedClearance" ||
-			phase == "cautionConflictingTraffic"
+			phase === "cautionConflictingTraffic"
 		) {
 			return "rgb(255, 255, 51)"
 		}

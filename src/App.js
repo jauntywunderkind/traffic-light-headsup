@@ -8,21 +8,22 @@ import logo from "./logo.svg"
 import "./App.css"
 
 class App extends Component {
-	componentDidMount() {
+	saveUser() {
 		// assert this "user" in the history state
 		const user = this.props.user
 		if (!window.history.state || window.history.state.user !== user) {
 			const search = new URLSearchParams(window.location.search)
-			search.append("user", user)
+			search.set("user", user.id)
 			window.history.replaceState(
 				{ user },
 				"Traffic Light Headsup",
-				window.location.pathname + "&" + search.toString()
+				window.location.pathname + "?" + search.toString()
 			)
 			// now if we go back in history we'll have this "user" in history state
 		}
 	}
 	render() {
+		this.saveUser()
 		return (
 			<UserContext.Provider value={this.props.user}>
 				<GeolocationTracker />
@@ -43,10 +44,8 @@ class App extends Component {
 App.propTypes = {
 	user: propTypes.object
 }
-App.defaultProps = function() {
-	return {
-		user: loadUser()
-	}
+App.defaultProps = {
+	user: loadUser()
 }
 
 export default App

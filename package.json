@@ -38,6 +38,7 @@
 	"dependencies": {
 		"concurrently": "^3.5.1",
 		"esm": "^3.0.28",
+		"pg": "^7.4.1",
 		"prettier": "^1.12.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.3.2",

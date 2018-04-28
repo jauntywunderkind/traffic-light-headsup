@@ -24,7 +24,7 @@ exit 0
 do
 	# this is the magic file one has
 	# alas it still doesn't work?
-	asn1tools convert -i uper -o jer "$ASN" MapData "$(cat map-data/$file)" > map-data/${file%.hex}.json
+	asn1tools convert -i uper -o jer "$ASN" MessageFrame "$(cat map-data/$file)" > map-data/${file%.hex}.json
 
 	# going back to manually running these hex files for now
 done

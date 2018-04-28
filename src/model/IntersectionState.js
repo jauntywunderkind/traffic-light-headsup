@@ -5,15 +5,27 @@ import IntersectionStatusObject from "./IntersectionStatusObject"
 import MovementState from "./MovementState"
 import ConnectionManeuverAssist from "./ConnectionManeuverAssist"
 
-export const MsgCount = types.refinement("MsgCount", types.number, n=> n>= 0)
+export const MsgCount = types.refinement("MsgCount", types.number, n => n >= 0)
 
-export const MinuteOfTheYear = types.refinement("MinuteOfTheYear", types.number, n=> n>= 0)
+export const MinuteOfTheYear = types.refinement(
+	"MinuteOfTheYear",
+	types.number,
+	n => n >= 0
+)
 
-export const DSecond = types.refinement("DSecond", types.number, n=> n>= 0)
+export const DSecond = types.refinement("DSecond", types.number, n => n >= 0)
 
-export const EnabledLane = types.refinement("EnabledLane", types.number, ()=> true)
+export const EnabledLane = types.refinement(
+	"EnabledLane",
+	types.number,
+	() => true
+)
 
-export const RegionalExtensionIntersectionState = types.refinement("RegionalExtensionIntersectionState", types.string, str=> !!str.length) // not supporting this atm, we hope
+export const RegionalExtensionIntersectionState = types.refinement(
+	"RegionalExtensionIntersectionState",
+	types.string,
+	str => !!str.length
+) // not supporting this atm, we hope
 
 export const IntersectionState = types.model("IntersectionState", {
 	name: types.optional(DescriptiveName, ""),

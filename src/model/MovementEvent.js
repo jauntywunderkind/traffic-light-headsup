@@ -3,7 +3,11 @@ import MovementPhaseState from "./MovementPhaseState"
 import TimeChangeDetails from "./TimeChangeDetails"
 import AdvisorySpeed from "./AdvisorySpeed"
 
-export const RegionalExtensionMovementEvent = types.refinement("RegionalExtensionMovementEvent", types.string, str=> !!str.length) // not supporting this atm, we hope
+export const RegionalExtensionMovementEvent = types.refinement(
+	"RegionalExtensionMovementEvent",
+	types.string,
+	str => !!str.length
+) // not supporting this atm, we hope
 
 export const MovementEvent = types.model("MovementEvent", {
 	eventState: MovementPhaseState,

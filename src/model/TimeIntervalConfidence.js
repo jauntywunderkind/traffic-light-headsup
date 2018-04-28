@@ -9,6 +9,10 @@ import { types } from "mobx-state-tree"
 // 14 is 98%
 // 15 is 100%
 
-export const TimeIntervalConfidence= types.refinement("TimeIntervalConfidence", types.number, n=> n>= 0)
+export const TimeIntervalConfidence = types.refinement(
+	"TimeIntervalConfidence",
+	types.number,
+	n => n >= 0
+)
 
 export default TimeIntervalConfidence

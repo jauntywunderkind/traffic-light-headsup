@@ -3,7 +3,7 @@ import { types } from "mobx-state-tree"
 /**
   IntersectionStatus is encoded as a bit-string of 16 bit length
 */
-export const IntersectionStatus =  types.model("IntersectionStatus", {
+export const IntersectionStatus = types.model("IntersectionStatus", {
 	manualConrolIsEnabled: false,
 	stopTimeIsActivated: false,
 	failureFlash: false,

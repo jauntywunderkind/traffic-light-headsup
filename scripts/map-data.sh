@@ -9,15 +9,20 @@
 ASN=$HOME/j2735.asn
 
 set -e
-#set -x
+set -x
 
 mkdir -p map-data
+
+while read -u 3 -r item && read -u 4 -r b64; do
+	echo "$b64" | base64 -d - | xxd -plain | tr -d '\n' > map-data/$item.hex
+done 3< <(jq -r '.[].id' map-data.json) 4< <(jq -r '.[].msg' map-data.json)
+
+exit 1
 
 i=0
 jq -r '.[].msg' map-data.json | while read line
 do
 	# convert from base64 to hex, remove line breaks
-	echo "$line" | base64 -d - | xxd -plain | tr -d '\n' > map-data/$i.hex
 	i=$(($i + 1))
 done
 
